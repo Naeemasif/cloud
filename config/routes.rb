@@ -1,4 +1,7 @@
 Cloud::Application.routes.draw do
+
+  resources :resumes, only: [:index, :new, :create, :destroy]
+  root to: "resumes#index"
   devise_for :users
 
   # The priority is based upon order of creation:
