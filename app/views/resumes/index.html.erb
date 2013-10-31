@@ -27,7 +27,7 @@
         <td><%= resume.name %></td>
         <td><%= link_to "Download Now", resume.attachment_url %></td>
         <td><%= distance_of_time_in_words(resume.created_at, Time.now) %> ago</td>
-        <td></td>
+        <td><%= resume.file_size/1000/1000.to_f %> mb</td>
 
         <td><%= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td>
       </tr>
