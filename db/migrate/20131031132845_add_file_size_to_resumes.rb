@@ -1,5 +1,5 @@
 class AddFileSizeToResumes < ActiveRecord::Migration
   def change
-    add_column :resumes, :file_size, :float
+    add_column :resumes, :file_size, :float, :scale => 2
   end
 end

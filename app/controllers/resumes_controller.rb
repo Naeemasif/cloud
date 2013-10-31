@@ -17,6 +17,8 @@ class ResumesController < ApplicationController
     @resume = Resume.new(params[:resume])
       @resume.user_id = @user.id
     if @resume.save
+      a=current_user.space-(current_user.resumes.last.file_size/(1024*1024))
+      current_user.update_attributes(:space => a)
       redirect_to resumes_path, notice: "The resume #{@resume.name} has been uploaded."
     else
       render "new"
