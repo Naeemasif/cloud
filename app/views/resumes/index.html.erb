@@ -13,7 +13,6 @@
         var options = {
             legend: 'none',
             pieSliceText: 'label',
-            title: 'Space allocated to you',
             pieStartAngle: 100
         };
 
@@ -21,7 +20,7 @@
         chart.draw(data, options);
     }
 </script>
-<div id="piechart" style="width: 400px; height: 300px;"></div>
+<div id="piechart" style="width: 400px; height: 300px; "></div>
 
 
 <% if !flash[:notice].blank? %>
@@ -40,7 +39,7 @@
     <th>Name</th>
     <th>Download </th>
 
-    <th>Created at</th>
+    <th>Uploaded</th>
     <th>Size</th>
     <th>Delete</th>
   </tr>
@@ -48,10 +47,10 @@
   <tbody>
   <% @resumes.each do |resume| %>
       <tr>
-        <td><%= resume.name %></td>
+        <td><%= truncate(strip_tags(resume.name), :length => 30) %></td>
         <td><%= link_to "Download Now", resume.attachment_url %></td>
         <td><%= distance_of_time_in_words(resume.created_at, Time.now) %> ago</td>
-        <td><%= resume.file_size/1024/1024.to_f %> mb</td>
+        <td><%= number_with_precision(resume.file_size/1024/1024.to_f, :precision => 3) %> mb</td>
 
         <td><%= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td>
       </tr>

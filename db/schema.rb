@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20131031175353) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
-    t.float    "file_size"
+    t.integer  "file_size"
   end
 
   create_table "users", :force => true do |t|

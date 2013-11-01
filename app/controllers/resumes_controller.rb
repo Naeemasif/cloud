@@ -27,8 +27,13 @@ class ResumesController < ApplicationController
 
   def destroy
     @resume = Resume.find(params[:id])
-    @resume.destroy
+    a=current_user.space+(@resume.file_size/(1024*1024))
+    if @resume.destroy
+
+    current_user.update_attributes(:space => a)
     redirect_to resumes_path, notice:  "The resume #{@resume.name} has been deleted."
+    end
+
   end
 
 
