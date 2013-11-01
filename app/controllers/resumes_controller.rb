@@ -1,9 +1,11 @@
 class ResumesController < ApplicationController
-           before_filter :authenticate_user!
+  load_and_authorize_resource
   def index
+    if user_signed_in?
        @user = current_user
 
       @resumes = @user.resumes.all
+      end
 
   end
 

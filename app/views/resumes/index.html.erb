@@ -1,3 +1,6 @@
+
+<div class="row-fluid">
+<%if user_signed_in? %>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
     google.load("visualization", "1", {packages:["corechart"]});
@@ -20,18 +23,19 @@
         chart.draw(data, options);
     }
 </script>
-<div id="piechart" style="width: 400px; height: 300px; "></div>
-
+<div id="piechart" style="width: 400px; height: 300px; margin-left: 500px; margin-top: -70px"></div>
+      <%= form_for :resume, html: { multipart: true } do |f| %>
+          <%= f.file_field :attachment  %>
+          <%= f.submit "Save", class: "btn btn-primary" %>
+      <% end %>
+      </div>
 
 <% if !flash[:notice].blank? %>
     <div class="alert alert-info">
       <%= flash[:notice] %>
     </div>
 <% end %>
-<br />
-<%= link_to "Upload File", new_resume_path, class: "btn btn-primary" %>
-<br />
-<br />
+
 <table class="table table-bordered table-striped">
   <thead>
   <tr>
@@ -57,3 +61,8 @@
   <% end %>
   </tbody>
 </table>
+ <%- else %>
+      <%= render 'resumes/slider' %>
+<%- end %>
+
+</div>
