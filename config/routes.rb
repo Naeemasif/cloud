@@ -4,6 +4,9 @@ Cloud::Application.routes.draw do
   resources :resumes, only: [:index, :new, :create, :destroy]
   root to: "resumes#index"
   devise_for :users
+  resources :inquiries, :only => [:new, :create] do
+    get 'thank_you', :on => :collection
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

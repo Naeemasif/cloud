@@ -1,0 +1,43 @@
+
+  <div class="row">
+    <div class="span4"></div>
+
+    <div class="span8">
+    <%= form_for inquiry do |f| %>
+    <% if inquiry.errors.any? %>
+    <ul>
+      <% inquiry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  
+  <div style="display: none;">
+    <%= f.label :nickname %><br/>
+    <%= f.text_field :nickname %>
+  </div>
+  
+
+    <label>First Name</label>
+    <%= f.text_field :name, class:"span3" %>
+
+  
+
+    <label>Email</label>
+
+    <%= f.text_field :email,class: "span3" %>
+
+
+
+
+    <label>Message</label>
+    <%= f.text_area :message,class:"input-xlarge span5", rows: "10" %>
+
+  
+     <div>
+    <%= f.submit "Send", class:"btn btn-primary  " %>
+     </div>
+<% end %>
+    </div>
+</div>
+
