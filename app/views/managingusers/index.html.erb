@@ -6,6 +6,7 @@
     <th>Created </th>
     <th>Allocated Space </th>
     <th>Delete</th>
+    <th>Update</th>
   </tr>
   </thead>
   <tbody>
@@ -18,6 +19,7 @@
         <td><%= distance_of_time_in_words(user.created_at, Time.now) %> ago</td>
             <td><%= user.space %> Gb</td>
         <td><%= button_to "Delete",  managinguser_path(user), method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{user.email}?" %></td>
+        <td><%= button_to "Uppdate",  managinguser_path(user), method: :put, class: "btn btn-success" %></td></td>
       </tr>
         <% end %>
   <% end %>

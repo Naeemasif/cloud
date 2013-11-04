@@ -1,2 +1,49 @@
-<h1>Managingusers#update</h1>
-<p>Find me in app/views/managingusers/update.html.erb</p>
+<h2>Update Users </h2>
+
+<br>
+
+<table class="table">
+  <%= form_tag(:action => 'update_allocated_user_space', :method=>'post') do %>
+     <tr>
+       <td>
+
+         <h4>ID &nbsp</h4>
+       </td>
+       <td>
+         <%= text_field_tag "ID",@user.id,readonly:"true"%>
+       </td>
+       </tr>
+      <tr>
+       <td>
+         <h4>Email &nbsp</h4>
+       </td>
+       <td>
+         <%= text_field_tag "email",@user.email,readonly:"true"%>
+       </td>
+      </tr>
+      <tr>
+        <td>
+          <h4>Space</h4>
+        </td>
+        <td>
+          <%= text_field_tag "space",@user.space%>mb
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h4>Role</h4>
+        </td>
+        <td>
+          <%= text_field_tag "role",@user.role,readonly:"true"%>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        </td>
+        <td>
+          <%=submit_tag "Click To update User", :class=>"btn"%>
+        </td>
+      </tr>
+  <% end %>
+
+</table>

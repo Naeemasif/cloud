@@ -8,9 +8,8 @@
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Language', 'Speakers (in millions)'],
-            ['Total',  5021],
-            ['used', 5021-<%=current_user.space%>],
-
+            ['Total',  <%=current_user.space%> + <%=current_user.allocated_space%>],
+            ['used', <%=current_user.allocated_space%>],
         ]);
 
         var options = {
@@ -42,7 +41,6 @@
 
     <th>Name</th>
     <th>Download </th>
-
     <th>Uploaded</th>
     <th>Size</th>
     <th>Delete</th>
