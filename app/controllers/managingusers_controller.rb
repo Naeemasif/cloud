@@ -16,6 +16,14 @@ class ManagingusersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+
+  end
+
+  def update_allocated_user_space
+    @user = User.find(params[:ID])
+    @user.update_attributes(space:params[:space])
+    flash[:notice] = "Space allocated Successully"
   end
 
   def destroy

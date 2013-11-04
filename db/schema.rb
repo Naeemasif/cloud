@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131101064148) do
+ActiveRecord::Schema.define(:version => 20131104110616) do
 
   create_table "resumes", :force => true do |t|
     t.string   "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20131101064148) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
-    t.integer  "file_size"
+    t.float    "file_size"
   end
 
   create_table "users", :force => true do |t|
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20131101064148) do
     t.datetime "updated_at",                                 :null => false
     t.integer  "space",                  :default => 5021
     t.string   "role",                   :default => "user"
+    t.string   "allocated_space",        :default => "0"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

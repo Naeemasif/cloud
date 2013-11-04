@@ -1,5 +1,6 @@
 Cloud::Application.routes.draw do
 
+<<<<<<< HEAD
   resources :managingusers
   resources :resumes, only: [:index, :new, :create, :destroy]
   root to: "resumes#index"
@@ -7,6 +8,17 @@ Cloud::Application.routes.draw do
   resources :inquiries, :only => [:new, :create] do
     get 'thank_you', :on => :collection
   end
+=======
+
+  resources :managingusers , only: [:index , :new, :create, :update, :destroy]
+  resources :resumes, only: [:index, :new, :create, :destroy]
+  root to: "resumes#index"
+  devise_for :users
+  post '/managingusers/update_allocated_user_space' =>'managingusers#update_allocated_user_space'
+
+
+
+>>>>>>> arehman
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

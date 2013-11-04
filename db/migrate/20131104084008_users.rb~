@@ -1,0 +1,9 @@
+class Users < ActiveRecord::Migration
+  def up
+	add_column :users,:allocated_space, :stirng
+  end
+
+  def down
+        remove_column :users , :allocated_space
+  end
+end
