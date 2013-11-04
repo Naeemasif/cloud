@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3ac878a-9340-4669-9e1f-9517376da312" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20131104110616_users.rb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/managingusers/update_allocated_user_space.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/cloud.iml" afterPath="$PROJECT_DIR$/.idea/cloud.iml" />
@@ -42,6 +43,7 @@
     <file path="/update.html.erb" changelist="a3ac878a-9340-4669-9e1f-9517376da312" time="1383552086279" ignored="false" />
     <file path="/update_allocated_user_space.html.erb" changelist="a3ac878a-9340-4669-9e1f-9517376da312" time="1383552875292" ignored="false" />
     <file path="/20131104104749_add_to_users.rb" changelist="a3ac878a-9340-4669-9e1f-9517376da312" time="1383562305844" ignored="false" />
+    <file path="$PROJECT_DIR$/log/development.log" changelist="a3ac878a-9340-4669-9e1f-9517376da312" time="1383568292164" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
