@@ -1,3 +1,31 @@
+
+
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <script type="text/javascript">
+          google.load("visualization", "1", {packages:["corechart"]});
+          google.setOnLoadCallback(drawChart);
+          function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+                  ['Language', 'Speakers (in millions)'],
+                  ['Total',  <%= @mb_total %>],
+                  ['used', <%= @mb_total %>-<%= @mb_available %>],
+
+              ]);
+
+              var options = {
+                  legend: 'none',
+                  pieSliceText: 'label',
+                  pieStartAngle: 100
+
+              };
+
+              var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+              chart.draw(data, options);
+          }
+      </script>
+      <div id="piechart" style="width: 400px; height: 300px; margin-left: 500px; margin-top: -70px"></div>
+<%= @mb_available %>
+<%= @mb_total %>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -16,7 +44,7 @@
         <td><%= user.email %></td>
             <td><%= distance_of_time_in_words(user.last_sign_in_at, Time.now) %> ago</td>
         <td><%= distance_of_time_in_words(user.created_at, Time.now) %> ago</td>
-            <td><%= user.space %> Gb</td>
+            <td><%= user.space %> Mb</td>
         <td><%= button_to "Delete",  managinguser_path(user), method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{user.email}?" %></td>
       </tr>
         <% end %>

@@ -10,7 +10,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'less-rails'
 gem 'therubyracer'
-
+gem 'sys-filesystem'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
