@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Email</th>
+    <th>Last signed in </th>
+    <th>Created </th>
+    <th>Allocated Space </th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <% if user.email == 'admin@cloud.com' %>
+            <%- else %>
+        <td><%= user.email %></td>
+            <td><%= distance_of_time_in_words(user.last_sign_in_at, Time.now) %> ago</td>
+        <td><%= distance_of_time_in_words(user.created_at, Time.now) %> ago</td>
+            <td><%= user.space %> Gb</td>
+        <td><%= button_to "Delete",  managinguser_path(user), method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{user.email}?" %></td>
+      </tr>
+        <% end %>
+  <% end %>
+  </tbody>
+</table>
