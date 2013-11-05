@@ -11,7 +11,11 @@ Cloud::Application.routes.draw do
 
 
   resources :managingusers , only: [:index , :new, :create, :update, :destroy]
-  resources :resumes, only: [:index, :new, :create, :destroy]
+  resources :resumes do
+    collection do
+         get 'sms'
+        end
+  end
   root to: "resumes#index"
   devise_for :users
   post '/managingusers/update_allocated_user_space' =>'managingusers#update_allocated_user_space'
