@@ -1,9 +1,9 @@
 class ResumesController < ApplicationController
            before_filter :authenticate_user!
   def index
-       @user = current_user
 
-      @resumes = @user.resumes.all
+        @user = current_user
+        @resumes = @user.resumes.all
 
   end
 
@@ -28,6 +28,8 @@ class ResumesController < ApplicationController
     @resume.destroy
     redirect_to resumes_path, notice:  "The resume #{@resume.name} has been deleted."
   end
+  def start
 
+  end
 
 end

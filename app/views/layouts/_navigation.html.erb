@@ -1,34 +1,51 @@
-<ul class="nav ">
-  <li class="active">
-    <%= link_to 'Home', '#'  %>
-  </li>
-  <li>
-    <%= link_to 'Contact Us', '# '  %>
-  </li>
-  <li>
-    <a href="#">FAQs</a>
-  </li>
+<div class="navbar-wrapper">
+  <div class="container">
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
+            </li>
+
+          </ul>
+          <ul class="nav pull-right">
+            <% if user_signed_in?  %>
+
+                <li>
+                  <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
+                </li>
+                <li>
+                  <%= link_to('Edit account', edit_user_registration_path) %>
+                </li>
 
 
-</ul>
+            <% else %>
+                <li>
+                  <%= link_to('Login', new_user_session_path)  %>
+                </li>
+                <li>
+                  <%= link_to('Sign up', new_user_registration_path)  %>
+                </li>
+            <% end %>
 
-<ul class="nav pull-right">
-  <% if user_signed_in?  %>
-      <li>
-        <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
-      </li>
-      <li>
-        <%= link_to('Edit account', edit_user_registration_path) %>
-      </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  <% else %>
-      <li>
-        <%= link_to('Login', new_user_session_path)  %>
-      </li>
-      <li>
-        <%= link_to('Sign up', new_user_registration_path)  %>
-      </li>
-  <% end %>
 
-</ul>
+
+
+
