@@ -1,19 +1,11 @@
 
-
-<a href="<%=@authorize_url%>" target="_blank">Click here to copy the access code</a>
-
-
-
-
 <% if !flash[:notice].blank? %>
     <div class="alert alert-info">
       <%= flash[:notice] %>
     </div>
 <% end %>
 <br />
-
 <%= link_to "Upload File", new_resume_path, class: "btn btn-primary" %>
-
 <br />
 <br />
 <table class="table table-bordered table-striped">
