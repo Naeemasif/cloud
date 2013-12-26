@@ -1,0 +1,47 @@
+
+
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+
+    <th>revision</th>
+    <th>rev </th>
+
+    <th>thumb_exists</th>
+    <th>bytes</th>
+    <th>modified</th>
+    <th>client_mtime</th>
+    <th> path </th>
+    <th> is_dir </th>
+    <th> icon </th>
+    <th> root </th>
+    <th> size </th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+
+
+   <%#=@root_metadata.collect{|k, v| k << v}  %>
+
+  <% @root_metadata.each_pair do |k,v| %>
+      <%  if k == "contents" %>
+          <% v.each do |k,v| %>
+              <tr>
+              <%  k.each do |k,v| %>
+                      <% if k== "path"  %>
+                        <td><a href="<%=v %>"><%=v %></a> </td>
+                        <% else%>
+                            <td><%=v %></td>
+                    <% end %>
+
+
+
+              <% end %>
+              </tr>
+          <%end %>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>

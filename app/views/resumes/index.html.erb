@@ -1,8 +1,8 @@
 
 
-<a href="<%=@authorize_url%>" target="_blank">Click here to copy the access code</a>
+<%= link_to "connect to your dorpbox accoutn", resumes_reg_url  %>
 
-
+<%= link_to "show uploaded files",  resumes_show_path  %>
 
 
 <% if !flash[:notice].blank? %>
@@ -10,34 +10,10 @@
       <%= flash[:notice] %>
     </div>
 <% end %>
+
 <br />
 
 <%= link_to "Upload File", new_resume_path, class: "btn btn-primary" %>
 
 <br />
 <br />
-<table class="table table-bordered table-striped">
-  <thead>
-  <tr>
-
-    <th>Name</th>
-    <th>Download </th>
-
-    <th>Created at</th>
-    <th>Size</th>
-    <th>Delete</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @resumes.each do |resume| %>
-      <tr>
-        <td><%= resume.name %></td>
-        <td><%= link_to "Download Now", resume.attachment_url %></td>
-        <td><%= distance_of_time_in_words(resume.created_at, Time.now) %> ago</td>
-        <td><%= resume.file_size/1000/1000.to_f %> mb</td>
-
-        <td><%= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
