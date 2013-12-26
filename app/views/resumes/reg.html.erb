@@ -1,0 +1,12 @@
+
+
+<a href="<%=@authorize_url%>" target="_blank">Click here to copy the access code</a>
+
+
+<div class="well">
+  <%= form_tag({:action => :connect}, :method => :post) do %>
+      <%=text_field_tag :code %>
+      <%=submit_tag :submit%>
+  <%end%>
+
+</div>
