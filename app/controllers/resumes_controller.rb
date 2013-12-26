@@ -62,15 +62,13 @@ class ResumesController < ApplicationController
 
       @root_metadata = client.metadata('/')
 
-       @root_metadata.each  do |key , val|
 
+       #@root_metadata.each  do |key , val|
+        # puts key
+        # puts "****************************************************************************************"
+        # puts val
 
-         puts "****************************************************************************************"
-         puts key
-         puts "****************************************************************************************"
-         puts val
-         puts "****************************************************************************************"
-       end
+      # end
 
      # contents, metadata = client.get_file_and_metadata("#{@resume.name}")
      # open("#{@resume.name}", 'w') {|f| f.puts contents }
@@ -91,5 +89,8 @@ end
   def start
 
   end
+
+
+
 
 end
