@@ -17,7 +17,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-    %w(pdf doc htm html docx mp4 tar.gz)
+    %w(pdf doc  html docx mp4 tar.gz zip)
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
